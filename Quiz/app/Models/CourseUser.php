@@ -17,6 +17,9 @@ class CourseUser extends Model
         'enrollment_date',
         'grade'
     ];
+    protected $casts =[
+        'enrollment_date'=>'datetime'
+    ];
 
     
     public function users(){
