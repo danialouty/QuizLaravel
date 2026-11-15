@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('department');
             $table->string('office-room');
             $table->string('photo');
-            $table->boolean('isActivated');
+            $table->boolean('isActivated')->default(true);
             $table->timestamps();
         });
     }
