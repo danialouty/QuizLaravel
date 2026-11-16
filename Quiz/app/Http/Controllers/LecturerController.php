@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lecturer;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class LecturerController extends Controller
 {
     public function index (){
+        $lecturers = Lecturer::where('isActivated')
+        ->with('user')
+        ->withCount('courses')
+        ->get();
+
+        return View('lecturers.index',compact('lecturers'));
         
     }
 
